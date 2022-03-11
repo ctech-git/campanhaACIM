@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Satisfação</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta content="Sua plataforma de avaliação online!" name="description" />
+	<meta content="satisfacao, avaliacao, formularios" name="keywords" />
+
+	<meta property="og:locale" content="pt_BR">
+
+	<meta property="og:url" content="https://www.portalctech.com.br">
+	<meta property="og:title" content="Conte-nos sua experiência e o que você achou do nosso ambiente!">
+	<meta property="og:site_name" content="Sua plataforma de avaliação online!">
+	<meta property="og:description" content="Você gostaria de nos deixar sua opinião sobre algo?">
+
+	<meta property="og:image" itemprop="image"
+		content="https://res.cloudinary.com/dte7upwcr/image/upload/blog/blog2/pesquisa-de-satisfacao/pesquisa-de-satisfacao-img_header.jpg">
+	<meta property="og:type" content="website">
+	<meta property="og:image:type" content="image/jpeg">
+	<meta property="og:image:width" content="300">
+
+	<meta property="og:image:height" content="200">
+
+	<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<!--===============================================================================================-->
+</head>
+
+<body style='background-color: #fff;'>
+
+
+	<div class="limiter" id='parte_1' style='background-color: #fff;'>
+		<div class="container">
+
+			<div class='row' style="justify-content: center; margin-top:50px; margin-bottom:50px">
+
+				<span class="">
+					<img id='logo' src="images" style='width: 200px;' alt="">
+				</span>
+			</div>
+
+			<h3 style='margin:auto;text-align:center;margin-bottom:80px'>Sua opinião é <strong>nossa maior motivação</strong>
+			</h3>
+
+
+
+			<div class="col-md-12 col-12 m-t-15 d-none" style="margin-top: 2rem !important; text-align:center">
+				<label>
+					<strong>Qual seu consumo total?</strong>
+				</label>
+			</div>
+			<div class='col-12 col-md-12 col-lg-12  d-none'
+				style='margin-bottom:5rem;justify-content: center; text-align:center'>
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<div class="input-group-text" style="font-size:50px;color: #bbb">R$</div>
+					</div>
+					<input type="text" class="form-range form-control" inputmode="numeric" placeholder="0,00" id="valorDinheiro"
+						style='border:0; font-size:50px;padding-top:0px'>
+				</div>
+			</div>
+
+
+
+			<style>
+				.legendaEmoji {
+					font-size: 15px;
+				}
+			</style>
+
+
+
+			<div id="perguntas" style='color:white'>
+
+			</div>
+
+			<div class="row m-t-15">
+
+				<div class="col-md-12 col-12 m-t-15">
+					<label>
+						<strong>Qual sua satisfação total?</strong>
+					</label>
+				</div>
+				<div class="col-md-12 col-12">
+					<div class="range-slider">
+						<span id="rs-bullet" class="rs-label">0</span>
+						<input id="rs-range-line" class="rs-range" type="range" value="0" min="0" max="100">
+					</div>
+					<div class="box-minmax">
+						<span>0</span><span>100</span>
+					</div>
+				</div>
+			</div>
+
+
+			<div id='inputsTexto'>
+
+				<div class='col-12 col-md-12 col-lg-12' style='margin-top: 4rem !important'>
+					<label>Qual seu nome?</label><input class='form-control' placeholder='Digita seu nome aqui' id='nome' />
+				</div>
+				<div class='col-12 col-md-12 col-lg-12' style='margin-top: 2rem !important'>
+					<label>Qual seu telefone?</label><input class='form-control' placeholder='Digita seu telefone aqui'
+						id='telefone' inputmode="numeric" />
+				</div>
+				<div class='col-12 col-md-12 col-lg-12 ' style='margin-top: 2rem !important'>
+					<label>Qual sua data de aniversario?</label><input class='form-control' id='dataNascimento'
+						inputmode="numeric" placeholder='Digite sua data de aniversario' />
+				</div>
+				<div class='col-12 col-md-12 col-lg-12 ' style='margin-top: 2rem !important'>
+					<label for="w3review">Deseja enviar alguma observação? </label>
+
+					<textarea id="observacoes" name="w3review" class='form-control' rows="4" cols="50">
+				</textarea>
+				</div>
+			</div>
+
+			<div class='col-12 col-md-12 col-lg-12 mt-5'>
+				<button style='width:100%;height: 80px;border-color: #ff5a00; background-color: #ff5a00;'
+					class='btn btn-success' onclick='enviar_resposta()'>Enviar</button>
+			</div>
+		</div>
+	</div>
+
+	<style>
+		.btn-check {
+			display: none;
+		}
+
+		#titulo_pergunta {
+			-webkit-transition: opacity .5s ease-in-out;
+			-moz-transition: opacity .5s ease-in-out;
+			-ms-transition: opacity .5s ease-in-out;
+			-o-transition: opacity .5s ease-in-out;
+			transition: opacity .5s ease-in-out;
+		}
+	</style>
+
+	<div class="limiter" id='parte_2' style='display: none !important;'>
+		<div class="container-login100">
+			<div class="wrap-login100 p-t-85 p-b-20">
+				<form id='form_parte2' class="login100-form ">
+					<div class="row">
+						<div class="col-md-12 col-12" style='text-align: center;'>
+							<span class="">
+								<img id='logo2' src="" style='width: 200px;' alt="">
+							</span>
+						</div>
+					</div>
+
+					<div class="row m-t-60">
+						<div class="col-md-12 col-12" style='text-align: center;'>
+							<span class="login100-form-title p-b-70">
+								Obrigado por fazer parte dos nossos sonhos!
+							</span>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 col-12" style='text-align: center;'>
+							<span class="">
+								<img src="images/success.svg" alt="AVATAR">
+							</span>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class='footer'></div>
+
+
+	<div id="dropDownSelect1"></div>
+
+	<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+	<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+	<link rel="stylesheet/less" type="text/css" href="slider.less">
+	<script src="https://cdn.jsdelivr.net/npm/less@4"></script>
+
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
+		integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw=="
+		crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
+
+<script type="text/javascript" charset="utf-8">
+
+	$(document).ready(function () {
+
+		var url_string = window.location;
+		var url = new URL(url_string);
+
+		var id_loja = url.searchParams.get("empresa");
+
+
+		$.ajax({
+			url: 'Control/buscarDados.php',
+			dataType: 'json',
+			destroy: true,
+			data: {
+				id_loja
+			},
+			success: function (data) {
+				var data = data[0];
+				document.getElementById('logo').src = data.logo;
+				document.getElementById('logo2').src = data.logo;
+
+				var tipo = data.tipo;
+				if (tipo == 'tablet') {
+					document.getElementById('inputsTexto').style.display = 'none';
+					sessionStorage.setItem('tipoSatisfacao', 'tablet');
+					sessionStorage.setItem('perguntas', data.perguntas);
+				}
+
+				proxima_pergunta(data.perguntas);
+
+			}
+		});
+	});
+
+	$("#dataNascimento").mask('99/99/9999');
+	$("#telefone").mask('(99) 9 9999-9999');
+	$("#valorDinheiro").mask("#.##0,00", { reverse: true });
+
+
+
+	var dados = localStorage.getItem('usuarioSatisfacao');
+	if (dados) {
+		dados = JSON.parse(dados);
+		$('#nome').val(dados[0].nome);
+		$('#telefone').val(dados[0].telefone);
+		$('#dataNascimento').val(dados[0].dataNascimento);
+	}
+
+	$("#form_parte1").submit(function (event) {
+		event.preventDefault();
+		$('#parte_1').hide(1000);
+		$('#parte_2').show(2000);
+	});
+
+	var i = 0;
+
+
+
+	function proxima_pergunta(perguntas) {
+
+		var respostas = [];
+		console.log(perguntas);
+		perguntas = JSON.parse(perguntas)
+		console.log(perguntas);
+
+		for (let i = 0;i < perguntas.length;i++) {
+			respostas.push(0);
+			const element = perguntas[i];
+
+			$('#perguntas').append(
+				`
+<div class="row m-t-45" >
+	<div class="col-12" style="margin:0">
+		<h5 style="text-align:center;color:black"><b>${element}</b></h5>
+	</div>
+	<div class="col-12 m-t-15" style="padding-left:0px; text-align:center">
+		<div class="btn-group" data-toggle="buttons">
+			<label style='font-size:25px' onclick='avaliar_pergunta("${i}","1")' for="" class="btn btn-outline-danger">
+				<input type="radio"> <span> <img src="images/pessimo.svg" / style='width:30px'> </span>
+																													<br /><span class='legendaEmoji'>Péssimo</span>
+				</label>
+			<label style='font-size:25px' onclick='avaliar_pergunta("${i}","2")' for="" class="btn btn-outline-warning">
+				<input type="radio"> <span> <img src="images/medio.svg" / style='width:30px'> </span>
+																													<br /><span class='legendaEmoji'>Ruim</span>
+				</label>
+			<label style='font-size:25px' onclick='avaliar_pergunta("${i}","3")' for="" class="btn btn-outline-info">
+				<input type="radio"> <span> <img src="images/normal.svg" / style='width:30px'> </span>
+																													<br /><span class='legendaEmoji'>Regular</span>
+				</label>
+			<label style='font-size:25px' onclick='avaliar_pergunta("${i}","4")' for="" class="btn btn-outline-success">
+				<input type="radio"> <span> <img src="images/bom.svg" / style='width:30px'> </span>
+																													<br /><span class='legendaEmoji'>Bom</span>
+				</label>
+			<label style='font-size:25px' onclick='avaliar_pergunta("${i}","5")' for="" class="btn btn-outline-success">
+				<input type="radio" ><span> <img src="images/otimo.svg" / style='width:30px'>
+																														<br /><span class='legendaEmoji'>Ótimo</span>
+																															</label>
+				</div>
+		</div>
+	</div>
+	<hr></hr>
+`
+			)
+
+		}
+		respostas = JSON.stringify(respostas);
+		sessionStorage.setItem('respostas', respostas);
+	}
+
+	function avaliar_pergunta(index, valor) {
+		var respostas = sessionStorage.getItem('respostas');
+		respostas = JSON.parse(respostas);
+		respostas[index] = valor;
+		respostas = JSON.stringify(respostas);
+		sessionStorage.setItem('respostas', respostas)
+	}
+
+	function enviar_resposta() {
+
+		finalizar_pesquisa();
+
+		setTimeout(() => {
+
+			var respostas = sessionStorage.getItem('respostas');
+			var url_string = window.location;
+			var url = new URL(url_string);
+
+			var idEmpresa = url.searchParams.get("empresa");
+
+			$('#perguntas').html('');
+
+			var nome = $('#nome').val();
+			var telefone = $('#telefone').val();
+			var dataNascimento = $('#dataNascimento').val();
+			var observacoes = $('#observacoes').val();
+			var satisfacaoTotal = $('#satisfacaoTotal').val();
+
+
+
+			var json = [];
+
+			json.push({
+				'nome': nome,
+				'dataNascimento': dataNascimento,
+				'telefone': telefone
+			}
+			);
+
+			json = JSON.stringify(json);
+			localStorage.setItem('usuarioSatisfacao', json);
+
+			$.ajax({
+				url: 'Control/salvarSatisfacao.php',
+				dataType: 'json',
+				destroy: true,
+				data: {
+					respostas,
+					idEmpresa,
+					nome,
+					telefone,
+					dataNascimento,
+					observacoes,
+					satisfacaoTotal
+				},
+				success: function (data) {
+
+				}
+			});
+		}, 1000);
+
+
+	}
+
+	function finalizar_pesquisa() {
+		$('#parte_1').hide(1000);
+		$('#parte_2').show(2000);
+
+		setTimeout(() => {
+
+			var tipoSatisfacao = sessionStorage.getItem('tipoSatisfacao');
+			var perguntas = sessionStorage.getItem('perguntas');
+
+			if (tipoSatisfacao == 'tablet') {
+				$('#perguntas').html('');
+				proxima_pergunta(perguntas);
+				$('#parte_2').hide(1000);
+				$('#parte_1').show(2000);
+			}
+
+		}, 4000);
+
+	}
+
+	function mensagem_agradecendo() {
+		let timerInterval
+		Swal.fire({
+			title: 'Obrigado!',
+			icon: 'success',
+			html: 'Você é parte de quem somos',
+			timer: 4000,
+			timerProgressBar: true,
+			willClose: () => {
+				clearInterval(timerInterval)
+			}
+		}).then((result) => {
+
+			if (result.dismiss === Swal.DismissReason.timer) {
+				console.log('I was closed by the timer')
+			}
+		})
+	}
+
+	var rangeSlider = document.getElementById("rs-range-line");
+	var rangeBullet = document.getElementById("rs-bullet");
+
+	rangeSlider.addEventListener("input", showSliderValue, false);
+
+	function showSliderValue() {
+		rangeBullet.innerHTML = rangeSlider.value;
+		var bulletPosition = (rangeSlider.value / rangeSlider.max);
+		rangeBullet.style.left = (bulletPosition * 300) + "px";
+
+		if (rangeSlider.value >= 0 && rangeSlider.value <= 20) {
+			$('#rs-bullet').html(`<img src="images/pessimo.svg" style='width:100%'/>`);
+		}
+		if (rangeSlider.value > 20 && rangeSlider.value <= 40) {
+			$('#rs-bullet').html(`<img src="images/normal.svg" style='width:100%'/>`);
+		}
+		if (rangeSlider.value > 40 && rangeSlider.value <= 60) {
+			$('#rs-bullet').html(`<img src="images/medio.svg" style='width:100%'/>`);
+		}
+		if (rangeSlider.value > 60 && rangeSlider.value <= 80) {
+			$('#rs-bullet').html(`<img src="images/bom.svg" style='width:100%'/>`);
+		}
+		if (rangeSlider.value > 80 && rangeSlider.value <= 101) {
+			$('#rs-bullet').html(`<img src="images/otimo.svg" style='width:100%'/>`);
+		}
+
+	}
+
+
+</script>

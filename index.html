@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Saldão de Aniversário</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta content="Vem participar do Saldão de Aniversário de Marabá!" name="description" />
+	<meta content="satisfacao, avaliacao, formularios" name="keywords" />
+
+	<meta property="og:locale" content="pt_BR">
+
+	<meta property="og:url" content="https://www.acimmaraba.com.br/campanhaACIM">
+	<meta property="og:title" content="Vem participar do Saldão de Aniversário de Marabá!">
+	<meta property="og:site_name" content="Sua plataforma de inscrição online!">
+	<meta property="og:description"
+		content="Com descontos atrativos, o consumidor compra mais e o volume de vendas movimenta a economia da cidade">
+
+	<meta property="og:image" itemprop="image" content="https://acimmaraba.com.br/campanhaACIM/images/logo.png">
+	<meta property="og:type" content="website">
+	<meta property="og:image:type" content="image/jpeg">
+	<meta property="og:image:width" content="300">
+
+	<meta property="og:image:height" content="200">
+
+	<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<!--===============================================================================================-->
+</head>
+
+<body style='background-color: #fff;'>
+
+
+	<div class="limiter" id='parte_1' style='background-color: #fff;'>
+		<div class="container">
+
+			<div class='row' style="justify-content: center; margin-top:50px; margin-bottom:50px">
+
+				<span class="">
+					<img id='logo' src="images/logo.png" style='width: 200px;' alt="">
+				</span>
+			</div>
+
+			<h3 style='margin:auto;text-align:center;margin-bottom:80px'>Venha participar do <strong>Maior Saldão de
+					Aniversário de Marabá</strong>
+			</h3>
+
+			<div id='inputsTexto'>
+
+
+				<div class='col-12 col-md-12 col-lg-12' style='margin-top: 4rem !important'>
+					<label>Qual seu nome?</label><input class='form-control' placeholder='Digita seu nome aqui' id='nome' />
+				</div>
+				<div class='col-12 col-md-12 col-lg-12' style='margin-top: 2rem !important'>
+					<label>Qual seu telefone?</label><input class='form-control' placeholder='Digita seu telefone aqui'
+						id='telefone' inputmode="numeric" />
+				</div>
+				<div class='col-12 col-md-12 col-lg-12 ' style='margin-top: 2rem !important'>
+					<label>Qual sua empresa?</label><input class='form-control' id='empresa' inputmode="numeric"
+						placeholder='Seu nome fantasia' />
+				</div>
+
+				<div class='col-12 col-md-12 col-lg-12 ' style='margin-top: 2rem !important'>
+					<label>Qual seu CNPJ?</label><input class='form-control' id='cnpj' inputmode="numeric"
+						placeholder='Ex: 00.000.000/0001-00' />
+				</div>
+
+				<div class='col-12 col-md-12 col-lg-12 ' style='margin-top: 2rem !important'>
+					<label>Você é associado?</label>
+					<select id='associado' class="form-control">
+						<option>Sim</option>
+						<option>Não</option>
+					</select>
+				</div>
+
+				<div class='col-12 col-md-12 col-lg-12 ' style='margin-top: 2rem !important'>
+					<label>Quantos kits você deseja?</label><input class='form-control' onchange="contagemKits()" id='kits'
+						inputmode="numeric" placeholder='Ex: 3' />
+				</div>
+
+				<div class='col-12 col-md-12 col-lg-12 ' style='margin-top: 2rem !important'>
+					<p>Atenção: você pode escolher <strong>5 camisas a cada kit</strong>. Por exemplo: se escolher dois kits,
+						poderá escolher até
+						10
+						camisas.
+						</br>
+						</br>
+						<strong>Cada camisa extra custará R$ 25,00.</strong>
+
+					</p>
+				</div>
+
+				<div class='col-12 col-md-12 col-lg-12 ' style='margin-top: 2rem !important' id='valorTotal'>
+
+
+				</div>
+
+				<div class='col-12 col-md-12 col-lg-12 ' style='margin-top: 2rem !important'>
+					<label>Quantas camisas PP?</label><input class='form-control' id='camisaPP' onchange="contagemKits()"
+						inputmode="numeric" placeholder='Ex: 1' />
+				</div>
+				<div class='col-12 col-md-12 col-lg-12 ' style='margin-top: 2rem !important'>
+					<label>Quantas camisas P?</label><input class='form-control' id='camisaP' onchange="contagemKits()"
+						inputmode="numeric" placeholder='Ex: 2' />
+				</div>
+				<div class='col-12 col-md-12 col-lg-12 ' style='margin-top: 2rem !important'>
+					<label>Quantas camisas M?</label><input class='form-control' id='camisaM' onchange="contagemKits()"
+						inputmode="numeric" placeholder='Ex: 3' />
+				</div>
+				<div class='col-12 col-md-12 col-lg-12 ' style='margin-top: 2rem !important'>
+					<label>Quantas camisas G?</label><input class='form-control' id='camisaG' onchange="contagemKits()"
+						inputmode="numeric" placeholder='Ex: 4' />
+				</div>
+				<div class='col-12 col-md-12 col-lg-12 ' style='margin-top: 2rem !important'>
+					<label>Quantas camisas GG?</label><input class='form-control' id='camisaGG' onchange="contagemKits()"
+						inputmode="numeric" placeholder='Ex: 5' />
+				</div>
+
+			</div>
+
+			<div class='col-12 col-md-12 col-lg-12 mt-5'>
+				<button style='width:100%;height: 80px;border-color: #2c2d48; background-color: #2c2d48;'
+					class='btn btn-success' onclick='enviar_resposta()'>Participar da campanha <i
+						class='fa fa-check'></i></button>
+			</div>
+
+			<style>
+				.btn-check {
+					display: none;
+				}
+			</style>
+			<ul class="login-more p-t-100">
+			</ul>
+		</div>
+	</div>
+
+	<style>
+		#titulo_pergunta {
+			-webkit-transition: opacity .5s ease-in-out;
+			-moz-transition: opacity .5s ease-in-out;
+			-ms-transition: opacity .5s ease-in-out;
+			-o-transition: opacity .5s ease-in-out;
+			transition: opacity .5s ease-in-out;
+		}
+	</style>
+
+	<div class="limiter" id='parte_2' style='display:none'>
+		<div class="container-login100">
+			<div class="wrap-login100 p-t-85 p-b-20">
+				<form id='form_parte2' class="login100-form validate-form">
+
+					<span class="">
+						<img id='logo2' src="" style='width: 200px;' alt="">
+					</span>
+
+					<span class="login100-form-title p-b-70">
+						A ACIM agradece por fazer você fazer parte disso!
+					</span>
+					<span class="">
+						<img src="images/success.svg" alt="AVATAR">
+					</span>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class='footer'></div>
+
+
+	<div id="dropDownSelect1"></div>
+
+	<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+	<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
+		integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw=="
+		crossorigin="anonymous"></script>
+
+</body>
+
+</html>
+
+<script type="text/javascript" charset="utf-8">
+
+
+	$("#dataNascimento").mask('99/99/9999');
+	$("#telefone").mask('(99) 9 9999-9999');
+	$("#cnpj").mask('00.000.000/0000-00');
+
+
+	$("#form_parte1").submit(function (event) {
+		event.preventDefault();
+		$('#parte_1').hide(1000);
+		$('#parte_2').show(2000);
+	});
+
+	var i = 0;
+
+
+	function formatar_para_real(resultado) {
+		return parseFloat(resultado).toLocaleString('pt-BR', { minimumFractionDigits: 2, style: 'currency', currency: 'BRL' })
+	}
+
+	function contagemKits() {
+
+		var associado = $('#associado').val();
+		var kits = $('#kits').val();
+		var camisaPP = $('#camisaPP').val() ? $('#camisaPP').val() : 0;
+		var camisaP = $('#camisaP').val() ? $('#camisaP').val() : 0;
+		var camisaM = $('#camisaM').val() ? $('#camisaM').val() : 0;
+		var camisaG = $('#camisaG').val() ? $('#camisaG').val() : 0;
+		var camisaGG = $('#camisaGG').val() ? $('#camisaGG').val() : 0;
+
+		var quantidadeMaxKit = kits * 5;
+
+		var soma = Number(camisaPP) + Number(camisaP) + Number(camisaM) + Number(camisaG) + Number(camisaGG);
+		var resultado = 0;
+		if (soma > quantidadeMaxKit) {
+			var resultado = soma - quantidadeMaxKit;
+			resultado = resultado * 25;
+		}
+
+		var valorTotal = 0;
+		if (associado == 'Sim') {
+			valorTotal = kits * 149.99;
+		} else {
+			valorTotal = kits * 199.99;
+		}
+		valorTotal = valorTotal + resultado;
+		valorTotal = formatar_para_real(valorTotal);
+		$('#valorTotal').html(`<h3>Valor total: ${valorTotal} </h3>`);
+
+	}
+
+	function returnValorTotal() {
+
+		var associado = $('#associado').val();
+		var kits = $('#kits').val();
+		var camisaPP = $('#camisaPP').val() ? $('#camisaPP').val() : 0;
+		var camisaP = $('#camisaP').val() ? $('#camisaP').val() : 0;
+		var camisaM = $('#camisaM').val() ? $('#camisaM').val() : 0;
+		var camisaG = $('#camisaG').val() ? $('#camisaG').val() : 0;
+		var camisaGG = $('#camisaGG').val() ? $('#camisaGG').val() : 0;
+
+		var quantidadeMaxKit = kits * 5;
+
+		var soma = Number(camisaPP) + Number(camisaP) + Number(camisaM) + Number(camisaG) + Number(camisaGG);
+		var resultado = 0;
+		if (soma > quantidadeMaxKit) {
+			var resultado = soma - quantidadeMaxKit;
+			resultado = resultado * 25;
+		}
+
+		var valorTotal = 0;
+		if (associado == 'Sim') {
+			valorTotal = kits * 149.99;
+		} else {
+			valorTotal = kits * 199.99;
+		}
+		valorTotal = valorTotal + resultado;
+		return valorTotal;
+
+	}
+
+
+	function returnItems(valorTotal) {
+		let items = {
+			'amount': Math.round(valorTotal * 100),
+			'description': "Inscrição no Saldão de Aniversário",
+			'quantity': 1,
+			'code': 1,
+		}
+		return items;
+	}
+
+	function returnCustomer() {
+		let customer = {
+			"name": $('#nome').val(),
+			"email": 'acim@acimmaraba.com.br',
+			"code": 1,
+			"document": '026.285.782.04',
+			"type": "individual",
+			"document_type": "CPF",
+			"gender": "male",
+			"address": {
+				"line_1": `Rua Afro Sampaio, 51. Belo Horizonte`,
+				"zip_code": "68502120",
+				"city": "Marabá",
+				"state": "PA",
+				"country": "BR"
+			},
+			// "birthdate": customerData?.nascimento,
+			"phones": {
+				"mobile_phone": {
+					"country_code": "55",
+					//...splitNumberFone(customerData?.fone)
+					"area_code": "94",
+					"number": "991006004"
+				}
+			},
+			"metadata": {
+				//"userId": customerData?.id,
+			}
+		}
+		return customer
+	}
+
+	function paymentPix() {
+
+		let payment =
+			[
+				{
+					"payment_method": "pix",
+					"pix": {
+						"expires_in": 1649516030,
+						"additional_information": [
+							{
+								"name": "SALDÃO DE ANIVERSÁRIO",
+								"value": " ACIM"
+							}
+						]
+					}
+				}
+			];
+
+		return payment;
+	}
+
+	function enviar_resposta() {
+
+		finalizar_pesquisa();
+
+		setTimeout(() => {
+
+
+			var url_string = window.location;
+			var url = new URL(url_string);
+
+			var vendedor = url.searchParams.get("vendedor");
+
+			$('#perguntas').html('');
+
+			var nome = $('#nome').val();
+			var telefone = $('#telefone').val();
+			var empresa = $('#empresa').val();
+			var cnpj = $('#cnpj').val();
+			var associado = $('#associado').val();
+			var kits = $('#kits').val();
+			var camisaPP = $('#camisaPP').val();
+			var camisaP = $('#camisaP').val();
+			var camisaM = $('#camisaM').val();
+			var camisaG = $('#camisaG').val();
+			var camisaGG = $('#camisaGG').val();
+
+			var campanha = 'Saldão de aniversário';
+
+			var valorTotal = returnValorTotal();
+			var items = returnItems(valorTotal);
+			var customer = returnCustomer();
+			var payments = paymentPix();
+
+			const metadata = {
+				'evento': 'ACIM'
+			}
+
+			let body = {
+				items,
+				customer,
+				payments,
+				metadata
+			}
+
+			// $.ajax({
+			// 	url: 'Control/salvarCampanha.php',
+			// 	dataType: 'json',
+			// 	async: false,
+			// 	destroy: true,
+			// 	data: {
+			// 		campanha,
+			// 		vendedor,
+			// 		metadata,
+			// 		valorTotal,
+			// 		'nome': nome,
+			// 		'telefone': telefone,
+			// 		'empresa': empresa,
+			// 		'cnpj': cnpj,
+			// 		'associado': associado,
+			// 		'kits': kits,
+			// 		'camisaPP': camisaPP,
+			// 		'camisaP': camisaP,
+			// 		'camisaM': camisaM,
+			// 		'camisaG': camisaG,
+			// 		'camisaGG': camisaGG
+			// 	},
+			// 	success: function (data) {
+
+			// 	}
+			// });
+
+		}, 1000);
+
+	}
+
+	function finalizar_pesquisa() {
+		$('#parte_1').hide(1000);
+		$('#parte_2').show(2000);
+	}
+
+	function mensagem_agradecendo() {
+		let timerInterval
+		Swal.fire({
+			title: 'Obrigado!',
+			icon: 'success',
+			html: 'Você é parte de quem somos',
+			timer: 4000,
+			timerProgressBar: true,
+			willClose: () => {
+				clearInterval(timerInterval)
+			}
+		}).then((result) => {
+
+			if (result.dismiss === Swal.DismissReason.timer) {
+				console.log('I was closed by the timer')
+			}
+		})
+	}
+</script>
