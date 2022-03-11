@@ -52,7 +52,10 @@ values (
 )";
 $stm = $conexao->prepare($sql);
 if($stm->execute()){
-  echo "Sucesso";
+  
+  
+  $id = $conexao->lastInsertId();
+  echo json_encode(array('status'=>'success', 'id'=>$id, 'http_response_code' => http_response_code(200)));
 }
 else{
   echo "Erro";

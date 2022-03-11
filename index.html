@@ -69,33 +69,34 @@
 
 
 				<div class='col-12 col-md-12 col-lg-12' style='margin-top: 4rem !important'>
-					<label>Qual seu nome?</label><input class='form-control' placeholder='Digita seu nome aqui' id='nome' />
+					<label>Qual seu nome?</label><input value="Rodolfo A Geyer" class='form-control'
+						placeholder='Digita seu nome aqui' id='nome' />
 				</div>
 				<div class='col-12 col-md-12 col-lg-12' style='margin-top: 2rem !important'>
-					<label>Qual seu telefone?</label><input class='form-control' placeholder='Digita seu telefone aqui'
-						id='telefone' inputmode="numeric" />
+					<label>Qual seu telefone?</label><input value='94991006004' class='form-control'
+						placeholder='Digita seu telefone aqui' id='telefone' inputmode="numeric" />
 				</div>
 				<div class='col-12 col-md-12 col-lg-12 ' style='margin-top: 2rem !important'>
-					<label>Qual sua empresa?</label><input class='form-control' id='empresa' inputmode="numeric"
+					<label>Qual sua empresa?</label><input class='form-control' value="ctech" id='empresa' inputmode="numeric"
 						placeholder='Seu nome fantasia' />
 				</div>
 
 				<div class='col-12 col-md-12 col-lg-12 ' style='margin-top: 2rem !important'>
-					<label>Qual seu CNPJ?</label><input class='form-control' id='cnpj' inputmode="numeric"
+					<label>Qual seu CNPJ?</label><input class='form-control' value="32781035000100" id='cnpj' inputmode="numeric"
 						placeholder='Ex: 00.000.000/0001-00' />
 				</div>
 
 				<div class='col-12 col-md-12 col-lg-12 ' style='margin-top: 2rem !important'>
 					<label>Você é associado?</label>
 					<select id='associado' class="form-control">
-						<option>Sim</option>
-						<option>Não</option>
+						<option selected value="Sim">Sim</option>
+						<option value="Não">Não</option>
 					</select>
 				</div>
 
 				<div class='col-12 col-md-12 col-lg-12 ' style='margin-top: 2rem !important'>
-					<label>Quantos kits você deseja?</label><input class='form-control' onchange="contagemKits()" id='kits'
-						inputmode="numeric" placeholder='Ex: 3' />
+					<label>Quantos kits você deseja?</label><input value='2' class='form-control' onchange="contagemKits()"
+						id='kits' inputmode="numeric" placeholder='Ex: 3' />
 				</div>
 
 				<div class='col-12 col-md-12 col-lg-12 ' style='margin-top: 2rem !important'>
@@ -116,8 +117,8 @@
 				</div>
 
 				<div class='col-12 col-md-12 col-lg-12 ' style='margin-top: 2rem !important'>
-					<label>Quantas camisas PP?</label><input class='form-control' id='camisaPP' onchange="contagemKits()"
-						inputmode="numeric" placeholder='Ex: 1' />
+					<label>Quantas camisas PP?</label><input value="1" class='form-control' id='camisaPP'
+						onchange="contagemKits()" inputmode="numeric" placeholder='Ex: 1' />
 				</div>
 				<div class='col-12 col-md-12 col-lg-12 ' style='margin-top: 2rem !important'>
 					<label>Quantas camisas P?</label><input class='form-control' id='camisaP' onchange="contagemKits()"
@@ -166,19 +167,28 @@
 
 	<div class="limiter" id='parte_2' style='display:none'>
 		<div class="container-login100">
-			<div class="wrap-login100 p-t-85 p-b-20">
-				<form id='form_parte2' class="login100-form validate-form" style="text-align:center">
+			<div class="wrap-login100 p-t-25 p-b-20">
+				<form id='form_parte2' class="login100-form" style="text-align:center">
 
 					<span class="">
-						<img id='' src="images/loading.gif" style='width: 120px;' alt="">
+						<img id='logo' src="images/logo.png" style='width: 200px;' alt="">
 					</span>
 
-					<span class="login100-form-title p-b-70" id='textoQRcode' style="margin-top:40px">
-						Estamos gerando o seu QR Code
-					</span>
+					</br>
+
 					<span class="">
+						<img id='qrCodeGif' src="images/loading.gif" style='width: 120px;' alt="">
+					</span>
+
+					<div class='row'>
+						<div class='col-12 col-md-12 col-lg-12 mt-5' id='textoQrCode'>
+							<h4>Estamos gerando o seu QR Code</h4>
+
+						</div>
+					</div>
+					<!-- <span class="">
 						<img src="images/success.svg" alt="AVATAR">
-					</span>
+					</span> -->
 				</form>
 			</div>
 		</div>
@@ -217,7 +227,6 @@
 
 <script type="text/javascript" charset="utf-8">
 
-
 	$("#dataNascimento").mask('99/99/9999');
 	$("#telefone").mask('(99) 9 9999-9999');
 	$("#cnpj").mask('00.000.000/0000-00');
@@ -230,7 +239,6 @@
 	});
 
 	var i = 0;
-
 
 	function formatar_para_real(resultado) {
 		return parseFloat(resultado).toLocaleString('pt-BR', { minimumFractionDigits: 2, style: 'currency', currency: 'BRL' })
@@ -262,8 +270,13 @@
 			valorTotal = kits * 199.99;
 		}
 		valorTotal = valorTotal + resultado;
+		valorTaxa = valorTotal * 0.05;
+
 		valorTotal = formatar_para_real(valorTotal);
-		$('#valorTotal').html(`<h3>Valor total: ${valorTotal} </h3>`);
+
+		valorTaxa = formatar_para_real(valorTaxa);
+
+		$('#valorTotal').html(`<h3>Valor kit: ${valorTotal} </h3><p>+Taxa de pagamento online: ${valorTaxa}</p>`);
 
 	}
 
@@ -299,21 +312,32 @@
 
 
 	function returnItems(valorTotal) {
-		let items = {
+
+		valorTotal = valorTotal * 1.05;
+
+		let items = [{
 			'amount': Math.round(valorTotal * 100),
 			'description': "Inscrição no Saldão de Aniversário",
 			'quantity': 1,
 			'code': 1,
-		}
+		}]
 		return items;
 	}
 
 	function returnCustomer() {
+
+		var telefone = $('#telefone').val();
+		telefone = telefone.replace('(', '');
+		telefone = telefone.replace(')', '');
+		telefone = telefone.replace(' ', '');
+		telefone = telefone.replace(' ', '');
+		telefone = telefone.replace('-', '');
+
 		let customer = {
 			"name": $('#nome').val(),
 			"email": 'acim@acimmaraba.com.br',
 			"code": 1,
-			"document": '026.285.782.04',
+			"document": '02628578204',
 			"type": "individual",
 			"document_type": "CPF",
 			"gender": "male",
@@ -347,7 +371,7 @@
 				{
 					"payment_method": "pix",
 					"pix": {
-						"expires_in": 1649516030,
+						"expires_at": '2022-04-10T00:00:00',
 						"additional_information": [
 							{
 								"name": "SALDÃO DE ANIVERSÁRIO",
@@ -390,62 +414,126 @@
 			var campanha = 'Saldão de aniversário';
 
 			var valorTotal = returnValorTotal();
-			var items = returnItems(valorTotal);
-			var customer = returnCustomer();
-			var payments = paymentPix();
 
-			const metadata = {
-				'evento': 'ACIM'
-			}
-
-			let body = {
-				items,
-				customer,
-				payments,
-				metadata
-			}
 
 			$.ajax({
-				url: 'https://api-eventozz-prod.herokuapp.com/simple-payment/',
+				url: 'Control/salvarCampanha.php',
 				dataType: 'json',
-				type: 'POST',
 				destroy: true,
 				data: {
-					body
+					campanha,
+					vendedor,
+					valorTotal,
+					'nome': nome,
+					'telefone': telefone,
+					'empresa': empresa,
+					'cnpj': cnpj,
+					'associado': associado,
+					'kits': kits,
+					'camisaPP': camisaPP,
+					'camisaP': camisaP,
+					'camisaM': camisaM,
+					'camisaG': camisaG,
+					'camisaGG': camisaGG
 				},
 				success: function (data) {
+					console.log(data);
+					if (data) {
+						var idCompra = data.id;
+						enviarPagarMe(idCompra);
+					}
+
 				}
 			});
 
-			// $.ajax({
-			// 	url: 'Control/salvarCampanha.php',
-			// 	dataType: 'json',
-			// 	async: false,
-			// 	destroy: true,
-			// 	data: {
-			// 		campanha,
-			// 		vendedor,
-			// 		metadata,
-			// 		valorTotal,
-			// 		'nome': nome,
-			// 		'telefone': telefone,
-			// 		'empresa': empresa,
-			// 		'cnpj': cnpj,
-			// 		'associado': associado,
-			// 		'kits': kits,
-			// 		'camisaPP': camisaPP,
-			// 		'camisaP': camisaP,
-			// 		'camisaM': camisaM,
-			// 		'camisaG': camisaG,
-			// 		'camisaGG': camisaGG
-			// 	},
-			// 	success: function (data) {
-
-			// 	}
-			// });
-
 		}, 1000);
+	}
 
+	function enviarPagarMe(idCompra) {
+
+		var valorTotal = returnValorTotal();
+		var items = returnItems(valorTotal);
+		var customer = returnCustomer();
+		var payments = paymentPix();
+
+		const metadata = {
+			'evento': 'ACIM',
+			'idCompra': idCompra,
+
+		}
+
+		let body = {
+			items,
+			customer,
+			payments,
+			metadata
+		}
+
+		$.ajax({
+			url: 'https://api-eventozz-prod.herokuapp.com/simple-payment/',
+			dataType: 'json',
+			contentType: "application/json",
+			type: 'POST',
+			type: 'POST',
+			destroy: true,
+			headers: {
+				"Content-Type": "application/json"
+			},
+			data: JSON.stringify({
+				body
+			}),
+			success: function (data) {
+
+				if (data.status == 200 || data.status == '200') {
+					console.log(data);
+					var charges = data.data.charge;
+					var idTransacao = charges.id;
+					var qr_code = charges.qr_code;
+					var qr_code_url = charges.qr_code_url;
+					var status = charges.status;
+					$('#qrCodeGif').attr('src', qr_code_url);
+					$('#qrCodeGif').attr('style', 'width:250px !important');
+					$('#textoQrCode').html(
+						`
+						<h4 style='color: #2c2d48' onclick="copiarCodigo('${qr_code}')">Clique aqui para copiar o seu código para pagar via PIX Copia e Cola: </br> </br> 
+							</h4>
+							
+							<p style='font-size:9px' onclick="copiarCodigo('${qr_code}')">${qr_code}</p>
+							</br>
+							<h4 style='color: #2c2d48' >Após efetuar o pagamento, você irá receber a sua confirmação no seu celular!
+							</h4></br>
+							`);
+
+					atualizarCompra(idTransacao, qr_code, qr_code_url, idCompra, status);
+				}
+			}
+		});
+	}
+
+	function atualizarCompra(idTransacao, qr_code, qr_code_url, idCompra, status) {
+
+		$.ajax({
+			url: 'Control/atualizarCompra.php',
+			dataType: 'json',
+			destroy: true,
+			data: {
+				idTransacao, qr_code, qr_code_url, idCompra, status
+			},
+			success: function (data) {
+			}
+		});
+
+	}
+
+	function copiarCodigo(codigo) {
+		var link = codigo;
+		var temp = $("<input>");
+		$("body").append(temp);
+		temp.val(link).select();
+		document.execCommand("copy");
+		temp.remove();
+
+		Swal.fire('Código copiado!', 'Entre em seu banco, e no PIX Copia e Cole, adicione o código', 'success');
 	}
 
 	function finalizar_pesquisa() {
