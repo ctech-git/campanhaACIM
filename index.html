@@ -167,14 +167,14 @@
 	<div class="limiter" id='parte_2' style='display:none'>
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-85 p-b-20">
-				<form id='form_parte2' class="login100-form validate-form">
+				<form id='form_parte2' class="login100-form validate-form" style="text-align:center">
 
 					<span class="">
-						<img id='logo2' src="" style='width: 200px;' alt="">
+						<img id='' src="images/loading.gif" style='width: 120px;' alt="">
 					</span>
 
-					<span class="login100-form-title p-b-70">
-						A ACIM agradece por fazer você fazer parte disso!
+					<span class="login100-form-title p-b-70" id='textoQRcode' style="margin-top:40px">
+						Estamos gerando o seu QR Code
 					</span>
 					<span class="">
 						<img src="images/success.svg" alt="AVATAR">
@@ -404,6 +404,18 @@
 				payments,
 				metadata
 			}
+
+			$.ajax({
+				url: 'Control/ler_clientes.php',
+				dataType: 'json',
+				type: 'POST',
+				destroy: true,
+				data: {
+					body
+				},
+				success: function (data) {
+				}
+			});
 
 			// $.ajax({
 			// 	url: 'Control/salvarCampanha.php',
